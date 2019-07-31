@@ -1,7 +1,7 @@
 import sys
 from socket import *
 
-serverHost = '10.97.165.88'
+serverHost = '127.0.0.1'
 serverPort = 1237
 print("serverPort is %s" % serverPort)
 message = [b'Hello network']
@@ -13,6 +13,7 @@ if len(sys.argv) > 1:
 
 sockobj = socket(AF_INET, SOCK_STREAM)
 sockobj.connect((serverHost, serverPort))
+print(sockobj.getsockname())
 
 for line in message:
     sockobj.send(line)
